@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-04-06T15:39:18.053Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="E0L6leGVXDBlgeYVowb8" version="21.1.2" type="github">
+<mxfile host="app.diagrams.net" modified="2023-04-06T16:35:25.385Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="Uv1M3EdO1qv6Jknl8CRs" version="21.1.2" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="358" dy="4831" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
+    <mxGraphModel dx="1032" dy="5114" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="1" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -159,33 +159,36 @@
         </mxCell>
         <mxCell id="lGi5lmbvKym0QhXwMbX1-14" value="在addTimer和cancel中调用&lt;br&gt;runInLoop(&lt;br&gt;&lt;br&gt;和一些assertInLoopThread();" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="F0ohGDWFcqVebG-IbK3o-34">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="854.1379310344828" y="450.84486547009703" as="targetPoint" />
+            <mxPoint x="884" y="451" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="F0ohGDWFcqVebG-IbK3o-34" value="TimerQueue" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="755" y="128" width="258" height="206" as="geometry">
+          <mxGeometry x="711" y="118" width="443" height="206" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="F0ohGDWFcqVebG-IbK3o-35" value="* addTimer&#xa;创建定时器并添加进timers_，然后返回TimerId&#xa;* cancel(TimerId timerId)&#xa;&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="F0ohGDWFcqVebG-IbK3o-34" vertex="1">
-          <mxGeometry y="26" width="258" height="100" as="geometry" />
+        <mxCell id="F0ohGDWFcqVebG-IbK3o-35" value="* addTimer&#xa;创建定时器并添加进timers_，然后返回TimerId&#xa;* cancel(TimerId timerId)&#xa;* handleRead 调用 getExpired ， 然后去调用timer的run成员函数&#xa;从timers_中移除已到期（指跟now来比较expiration）的Timer，并通过vector返回&#xa;&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="F0ohGDWFcqVebG-IbK3o-34" vertex="1">
+          <mxGeometry y="26" width="443" height="100" as="geometry" />
         </mxCell>
         <mxCell id="F0ohGDWFcqVebG-IbK3o-36" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="F0ohGDWFcqVebG-IbK3o-34" vertex="1">
-          <mxGeometry y="126" width="258" height="8" as="geometry" />
+          <mxGeometry y="126" width="443" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="lGi5lmbvKym0QhXwMbX1-86" value="set&amp;lt;pair&amp;lt;Timestamp, Timer *&amp;gt;&amp;gt; timers_ (按照expiration排序)&lt;br&gt;set&amp;lt;pair&amp;lt;Timestamp, Timer *&amp;gt;&amp;gt;&amp;nbsp; ActiveTimerSet&lt;br&gt;timerfd_ 被设定为定时器里最短的那个到期时间" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="F0ohGDWFcqVebG-IbK3o-34">
+          <mxGeometry y="134" width="443" height="55" as="geometry" />
         </mxCell>
         <mxCell id="F0ohGDWFcqVebG-IbK3o-37" value="TimerQueue" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1304" y="929" width="160" height="90" as="geometry">
+          <mxGeometry x="1304" y="993" width="160" height="90" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="F0ohGDWFcqVebG-IbK3o-38" value="loop" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="F0ohGDWFcqVebG-IbK3o-37" vertex="1">
+        <mxCell id="F0ohGDWFcqVebG-IbK3o-38" value="作为一个Channel存在" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="F0ohGDWFcqVebG-IbK3o-37" vertex="1">
           <mxGeometry y="26" width="160" height="26" as="geometry" />
         </mxCell>
         <mxCell id="F0ohGDWFcqVebG-IbK3o-39" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="F0ohGDWFcqVebG-IbK3o-37" vertex="1">
           <mxGeometry y="52" width="160" height="8" as="geometry" />
         </mxCell>
         <mxCell id="F0ohGDWFcqVebG-IbK3o-43" value="Channel" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="1631" y="928" width="160" height="90" as="geometry">
+          <mxGeometry x="1630" y="998" width="160" height="90" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -236,10 +239,11 @@
             <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="lGi5lmbvKym0QhXwMbX1-22" value="如下几个函数中利用TimerQueue来addTimer&lt;br&gt;runAt、runAfter、runEvery、cancel" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="lGi5lmbvKym0QhXwMbX1-22" value="如下几个函数中利用TimerQueue来addTimer&lt;br&gt;runAt、runAfter、runEvery、cancel" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="F0ohGDWFcqVebG-IbK3o-37">
           <mxGeometry width="50" height="50" relative="1" as="geometry">
             <mxPoint x="1383.71" y="841" as="sourcePoint" />
             <mxPoint x="1383.71" y="929" as="targetPoint" />
+            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
         <mxCell id="lGi5lmbvKym0QhXwMbX1-23" value="" style="endArrow=classic;html=1;rounded=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="zkfFHV4jXpPFQw0GAbJ--0">
