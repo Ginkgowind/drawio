@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2023-04-09T03:44:04.622Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="Dk8UiLGyn080lVBFucN9" version="21.1.5" type="github">
+<mxfile host="app.diagrams.net" modified="2023-04-09T06:06:40.586Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="1m0rDxt5WfBGRMpyuMif" version="21.1.5" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="890" dy="773" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="0" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
+    <mxGraphModel dx="1032" dy="833" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="0" fold="1" page="0" pageScale="1" pageWidth="3300" pageHeight="4681" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -146,15 +146,18 @@
           <mxGeometry y="52" width="160" height="8" as="geometry" />
         </mxCell>
         <mxCell id="F0ohGDWFcqVebG-IbK3o-28" value="Connector" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="3993" y="50" width="160" height="90" as="geometry">
+          <mxGeometry x="3720" y="-10" width="300" height="320" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="F0ohGDWFcqVebG-IbK3o-29" value="loop" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="F0ohGDWFcqVebG-IbK3o-28" vertex="1">
-          <mxGeometry y="26" width="160" height="26" as="geometry" />
+        <mxCell id="F0ohGDWFcqVebG-IbK3o-29" value="* start();   // can be called in any thread&#xa;调用connect，并做错误处理，包含重连与关闭）&#xa;若EISCONN则调用connecting(sockfd)&#xa;* restart(); // must be called in loop thread&#xa;重置延时并调用startinLoop&#xa;* stop();    // can be called in any thread" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="F0ohGDWFcqVebG-IbK3o-28" vertex="1">
+          <mxGeometry y="26" width="300" height="194" as="geometry" />
         </mxCell>
         <mxCell id="F0ohGDWFcqVebG-IbK3o-30" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="F0ohGDWFcqVebG-IbK3o-28" vertex="1">
-          <mxGeometry y="52" width="160" height="8" as="geometry" />
+          <mxGeometry y="220" width="300" height="8" as="geometry" />
+        </mxCell>
+        <mxCell id="XIDIBZ-ZHtU4TUTy6eDY-7" value="serverAddr_&lt;br&gt;channel_&lt;br&gt;newConnectionCallback_&lt;br&gt;timerId_" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="F0ohGDWFcqVebG-IbK3o-28">
+          <mxGeometry y="228" width="300" height="70" as="geometry" />
         </mxCell>
         <mxCell id="F0ohGDWFcqVebG-IbK3o-31" value="EPoller" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1007" y="993" width="160" height="90" as="geometry">
@@ -179,18 +182,18 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="F0ohGDWFcqVebG-IbK3o-34" value="TimerQueue" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="711" y="99" width="443" height="225" as="geometry">
+          <mxGeometry x="711" y="44" width="443" height="263" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="F0ohGDWFcqVebG-IbK3o-35" value="* addTimer&#xa;创建定时器并添加进timers_，然后返回TimerId&#xa;* cancel(TimerId timerId)&#xa;* handleRead &#xa;调用 getExpired ， 然后去调用timer的run成员函数，最后再reset&#xa;* getExpired&#xa;从timers_中移除已到期（指跟now来比较expiration）的Timer，并通过vector返回&#xa;* reset&#xa;将重复的定时器重新塞回去，并重置下一次过期时间&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="F0ohGDWFcqVebG-IbK3o-34" vertex="1">
-          <mxGeometry y="26" width="443" height="136" as="geometry" />
+        <mxCell id="F0ohGDWFcqVebG-IbK3o-35" value="* addTimer&#xa;创建定时器并添加进timers_，然后返回TimerId&#xa;* cancel(TimerId timerId)&#xa;&#xa;* handleRead &#xa;调用 getExpired ， 然后去调用timer的run成员函数，最后再reset&#xa;* getExpired&#xa;从timers_中移除已到期（指跟now来比较expiration）的Timer，并通过vector返回&#xa;* reset&#xa;将重复的定时器重新塞回去，并重置下一次过期时间&#xa;" style="text;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="F0ohGDWFcqVebG-IbK3o-34" vertex="1">
+          <mxGeometry y="26" width="443" height="174" as="geometry" />
         </mxCell>
         <mxCell id="F0ohGDWFcqVebG-IbK3o-36" value="" style="line;html=1;strokeWidth=1;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="F0ohGDWFcqVebG-IbK3o-34" vertex="1">
-          <mxGeometry y="162" width="443" height="8" as="geometry" />
+          <mxGeometry y="200" width="443" height="8" as="geometry" />
         </mxCell>
         <mxCell id="lGi5lmbvKym0QhXwMbX1-86" value="set&amp;lt;pair&amp;lt;Timestamp, Timer *&amp;gt;&amp;gt; timers_ (按照expiration排序)&lt;br&gt;set&amp;lt;pair&amp;lt;Timer *, int64_t&amp;gt;&amp;gt;&amp;nbsp; ActiveTimerSet(好像只是便于搜索？)&lt;br&gt;timerfd_ 被设定为定时器里最短的那个到期时间" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" parent="F0ohGDWFcqVebG-IbK3o-34" vertex="1">
-          <mxGeometry y="170" width="443" height="55" as="geometry" />
+          <mxGeometry y="208" width="443" height="55" as="geometry" />
         </mxCell>
         <mxCell id="F0ohGDWFcqVebG-IbK3o-37" value="TimerQueue" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="1304" y="993" width="160" height="90" as="geometry">
@@ -352,7 +355,7 @@
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="lGi5lmbvKym0QhXwMbX1-75" value="TimerId" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="711" y="-50" width="143" height="88" as="geometry">
+          <mxGeometry x="711" y="-105" width="143" height="88" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
@@ -363,7 +366,7 @@
           <mxGeometry y="34" width="143" height="54" as="geometry" />
         </mxCell>
         <mxCell id="lGi5lmbvKym0QhXwMbX1-78" value="Timer" style="swimlane;fontStyle=2;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeLast=0;collapsible=1;marginBottom=0;rounded=0;shadow=0;strokeWidth=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="943" y="-155" width="219" height="193" as="geometry">
+          <mxGeometry x="943" y="-210" width="219" height="193" as="geometry">
             <mxRectangle x="230" y="140" width="160" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
